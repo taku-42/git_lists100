@@ -1,0 +1,21 @@
+<div class='question_content'>
+  <% if params[:category_id] == '1' %>
+    <img src="<%= asset_path "生活.png" %>" />
+  <% elsif params[:category_id] == '2'%>
+    <img src="<%= asset_path "仕事.png" %>" />
+  <% elsif params[:category_id] == '3'%>
+    <img src="<%= asset_path "旅行.png" %>" />  
+  <% else %>
+    <img src="<%= asset_path "その他.png" %>" />  
+  <% end %>
+  <div class='questions_post'>
+    <%= form_for (@question), remote: true do |f| %>
+      <%= f.text_field :text, placeholder: "入力したらENTERを押してください" %>ENTERで追加
+      <%= f.hidden_field :category, :value =>params[:category_id] %>
+    <% end %>
+    <ul class='content_left'>
+      <%= render partial: "top/question", collection: @questions, as: "question" %>
+    </ul>
+    <%= link_to 'カテゴリー選択に戻る', category_questions_path, class: 'ok' %>
+  </div>
+</div>

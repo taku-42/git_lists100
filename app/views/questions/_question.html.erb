@@ -1,0 +1,9 @@
+<div class='lists'>
+  <div class="question"><span class='category<%= question.category %>'>●</span><%= question.text %></div>
+  <div class='more'>
+    <%= link_to '削除', question_path(question), method: :delete, remote: true %>
+    <% if question.achive == 0 %>
+      <%= link_to '達成', question_path(question), method: :post, remote: true, class: 'answer' %>
+    <% end %>
+  </div>
+</div>

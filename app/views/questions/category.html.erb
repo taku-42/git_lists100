@@ -1,0 +1,59 @@
+<div class='category'>
+  <h2 class='careful'>カテゴリー名をクリック!!</h2>
+  <div class='life'>
+    <div class='field'>
+      <h1><%= link_to '生活', '/questions/1/new' %></h1>
+      <div class='model'>
+        <p>あなたが実現したい生活</p>
+        <p>今欲しいもの、買いたいもの</p>
+      </div>
+      <div class='sample'>みんなの目標
+        <% @questions1.each do |question| %>
+          <p><%= question.text %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class='job'>
+    <div class='field'>
+      <h1><%= link_to '仕事', '/questions/2/new' %></h1>
+      <div class='model'>
+        <p>あなたが就きたい職業</p>
+        <p>身につけたいスキル,目指す目標</p>
+      </div>
+      <div class='sample'>みんなの目標
+        <% @questions2.each do |question| %>
+          <p><%= question.text %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class='hoby'>
+    <div class='field'>
+      <h1><%= link_to '趣味、旅', '/questions/3/new' %></h1>
+      <div class='model'>
+        <p>あなたがやりたいこと</p>
+        <p>行きたい場所,食べたいもの</p>
+      </div>
+      <div class='sample'>みんなの目標
+        <% @questions3.each do |question| %>
+          <p><%= question.text %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class='else'>
+    <div class='field'>
+      <h1><%= link_to 'その他', '/questions/4/new' %></h1>
+      <div class='model'>
+        <p>なんでもOK</p>
+        <p>好きなことを書こう！</p>
+      </div>
+      <div class='sample'>みんなの目標
+        <% @questions4.each do |question| %>
+          <p><%= question.text %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

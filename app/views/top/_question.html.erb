@@ -1,0 +1,9 @@
+<div class='lists'>
+  <li class='question'><%= question.text %></li>
+  <div class='more'>
+    <%= link_to '削除', "/questions/#{question.id}/indestroy", method: :delete, remote: true %>
+    <% if question.achive == 0 %>
+      <%= link_to '達成', question_path(question), method: :post, remote: true, class: 'answer' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class='contents row'>
+  <% @users.each do |user| %>
+    <div class='content_post'>
+      <div class='user_info'>
+        <div class='user_image'><%= image_tag user.image %></div>
+        <h2><%= "#{user.nickname}" %></h2>
+      </div>
+      
+      <div class='tab_menu <%= user.id %>'>
+        <ul>
+          <li id="left<%= user.id %>" type='<%= user.id %>' class='selected'>目標</li>
+          <li id="right<%= user.id %>" type='<%= user.id %>'>達成</li>
+        </ul>
+        
+        <div class='content <%= user.id %>'>
+          <div class="left<%= user.id %>" id="<%= user.id %>">
+            <% @questions.where(user_id: user.id).each do |question| %>
+              <p class='question'><span class='category<%= question.category %>'>●</span><%= question.text %></p>
+            <% end %>
+          </div>
+          <div class="right<%= user.id %>" id="right">
+            <% @answers.where(user_id: user.id).each do |answer| %>
+              <p class='answers'><span class='category<%= answer.category %>'>●</span><%= answer.text %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<script>
+  $(function() {
+    $("li").on("click", function() {
+      $(".tab_menu." + this.type + " li").removeClass("selected");
+      $(this).addClass("selected " + this.type);
+      $(".content." + this.type + " div").hide();// 二つの要素を非表示にする' div'とすることで子要素のdivタグをすべて非表示にできる
+      $("." + this.id).show(); // クリックされたボタンに対応する要素を表示する
+    });
+  });
+</script>

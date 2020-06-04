@@ -1,0 +1,14 @@
+<div class='tab_menu'>
+  <ul>
+    <li id='content_left' class='selected'>目標</li>
+    <li id='content_right'>達成</li>
+  </ul> 
+  <div class='content'>
+    <section class='content_left'>
+      <%= render @questions %>
+    </section>
+    <section class='content_right' id='right'>
+      <%= render @answers %>
+    </section>
+  </div>
+</div>
